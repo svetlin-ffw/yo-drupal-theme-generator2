@@ -398,6 +398,8 @@ module.exports = class extends Generator {
 
   end() {
     this.log(chalk.cyan.bgBlack.bold(
-      `Your new Drupal theme is ready to use.`));
+      `
+      Your new Drupal theme is ready to use.
+      `));
   }
 };

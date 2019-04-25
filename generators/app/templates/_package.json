@@ -20,8 +20,7 @@
     "watch:js": "nodemon -e js -x \"npm run build:js\"",
     "watch:comb": "nodemon -e scss -x \"csscomb \"../templates/\"\"",
     "watch:scss": "node-sass --watch --recursive \"../templates/\" --output \"../assets/css/\" --output-style=compressed --source-map true",
-    "watch": "npm run watch:comb && npm run jshint && npm run watch:scss",
-    "postinstall": "npm run build"
+    "watch": "npm run watch:comb && npm run jshint && npm run watch:scss"
   },
   "babel": {
     "presets": [
