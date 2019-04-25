@@ -1,4 +1,9 @@
 # Changelog
+## 3.0.0 (2019-04-25)
+* Add theme-component generator
+* Change paths for components and styleguide
+* Remove Koality Grid
+* Lots of other small changes
 
 ## 2.0.6 (2018-10-18)
 

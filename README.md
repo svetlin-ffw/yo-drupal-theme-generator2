@@ -2,12 +2,11 @@
 
 This is a fork of the [Koality D8 Theme Generator](https://github.com/CodeKoalas/koality-drupal-theme-generator) which is a fork of [Media Current D8 Theme Generator](https://github.com/mediacurrent/theme_generator_8). 
 
-At this point most all code and features are thanks to all the hard work they have done. The main differences between Koality D8 Theme Generator and Media Current D8 Theme Generator at this point are the following features:
+At this point most all code and features are thanks to all the hard work they have done. The main differences between **Koality D8 Theme Generator and Media Current D8 Theme Generator** at this point are the following features:
 
 * Auto add component libraries to the theme's library definition list which saves some key strokes
-* Added the [Koality Flexbox Grid](https://github.com/fabean/flexbox-grid) as an install option
 
-Yeoman D8 Theme Generator differences:
+**Yeoman D8 Theme Generator differences:**
 * Added a generator for theme components in the template folder.
 * Changed path of the regular components (`components` instead of `src/components`). Might be changed again later.
 
@@ -23,7 +22,7 @@ Yeoman D8 Theme Generator differences:
 
 ## Usage
 
-While the drupal-theme generator can be run anywhere, it's happiest when it's run from an empty directory you'd like to become your theme.
+The drupal-theme generator should run from an empty directory you'd like to become your theme.
 
 I.E.
 ```
@@ -40,30 +39,33 @@ nvm install stable | grep -ohe 'v[0-9]*\.[0-9]*\.[0-9]*' | head -1 > .nvmrc && n
 
 ### Getting Started
 
-There are **two ways** to install and use the theme generator:
+~~There are **two ways** to install and use the theme generator:~~
 
-#### 1. Use [npx](https://www.npmjs.com/package/npx)
+The generator is not yet published as npm package. You have to clone the repo and `npm link` inside the generator folder to use it locally.
 
-**This is the recommended way of running the theme generator.**
+~~#### 1. Use [npx](https://www.npmjs.com/package/npx)~~
 
-If you're using `npm@5.2.0` or newer you already have [npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) available on the command line.
+~~**This is the recommended way of running the theme generator.**~~
+
+If you're using `npm@5.2.0` or newer you already have [npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) available on the command line.~~
 
 npx allows you to run one off commands using the latest version of a package without installing it globally.
 
-```bash
-npx -p yo -p generator-drupal-theme -c 'yo drupal-theme'
-```
+<!-- ```bash -->
+~~npx -p yo -p generator-drupal-theme -c 'yo drupal-theme'~~
+<!-- ``` -->
 
 Tools like this you only run once every so often. By the time you need to run it again it'll be so far out of date you'll have to update it.
 
 #### 2. Install `yo` and `generator-drupal-theme` globally:
 
-**This is NOT the recommended way of running the theme generator.**
+~~**This is NOT the recommended way of running the theme generator.**~~
 
 If you're using an older version of npm or just want to install it globally:
 
 ```bash
-npm install -g yo generator-drupal-theme
+cd yo-drupal-theme-generator
+npm install
 ```
 
 **Run `yo drupal-theme`:**
@@ -74,11 +76,6 @@ yo drupal-theme
 
 To see which generators and subgenerators you have, run `yo --help`.
 
-**Update the generator as needed.**
-
-```
-npm update -g generator-drupal-theme
-```
 
 ## Generators
 
@@ -275,7 +272,7 @@ Would you like to contribute? Want to make a few changes or fix a bug? COME ON O
 
 Clone down this repo:
 ```
-git@github.com:CodeKoalas/koality-drupal-theme-generator.git
+git@github.com:svetlin-ffw/yo-drupal-theme-generator.git
 ```
 
 Remove `generator-drupal-theme` if you have previously installed it:
