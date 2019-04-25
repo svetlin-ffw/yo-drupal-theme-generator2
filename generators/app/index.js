@@ -21,8 +21,8 @@ module.exports = class extends Generator {
         type: 'input',
         name: 'themeName',
         message: `What is your theme's human readable name?`,
-        default: this.appname,
-        store: true
+        default: this.appname
+        // store: true
       },
       {
         type: 'input',
@@ -30,8 +30,8 @@ module.exports = class extends Generator {
         message: `What is your theme's machine name? EX: unicorn_theme`,
         default: (answers) => {
           return _.snakeCase(answers.themeName)
-        },
-        store: true
+        }
+        // store: true
       },
       {
         type: 'input',
@@ -56,36 +56,36 @@ module.exports = class extends Generator {
           }
         ]
       },
-      {
-        type: 'checkbox',
-        name: 'howMuchTheme',
-        message: 'What would you like included in this build?',
-        choices: [
-          {
-            value: 'kssNode',
-            name: 'KSS Node style guide'
-          },
-          // {
-          //   value: 'breakpoint',
-          //   name: 'Breakpoint plugin'
-          // },
-          // {
-          //   value: 'singularity',
-          //   name: 'Singularity Grid System and Breakpoint'
-          // },
-          // {
-          //   value: 'koalityGrid',
-          //   name: 'Koality Flexbox Grid'
-          // }
-        ]
-      },
+      // {
+      //   type: 'checkbox',
+      //   name: 'howMuchTheme',
+      //   message: 'What would you like included in this build?',
+      //   choices: [
+      //     {
+      //       value: 'kssNode',
+      //       name: 'KSS Node style guide'
+      //     },
+      //     // {
+      //     //   value: 'breakpoint',
+      //     //   name: 'Breakpoint plugin'
+      //     // },
+      //     // {
+      //     //   value: 'singularity',
+      //     //   name: 'Singularity Grid System and Breakpoint'
+      //     // },
+      //     // {
+      //     //   value: 'koalityGrid',
+      //     //   name: 'Koality Flexbox Grid'
+      //     // }
+      //   ]
+      // },
       {
         type: 'confirm',
         name: 'kssSections',
-        message: `Since you're using KSS, would you like some sample Style Guide sections?`,
-        when: (answers) => {
-          return (answers.howMuchTheme.includes('kssNode'));
-        }
+        message: `Since you're using KSS, would you like some sample Style Guide sections?`
+        // when: (answers) => {
+        //   return (answers.howMuchTheme.includes('kssNode'));
+        // }
       }
     ]);
 
@@ -95,7 +95,8 @@ module.exports = class extends Generator {
       return choices.indexOf(opt) !== -1;
     };
 
-    this.kssNode = hasOption(this.answers.howMuchTheme, 'kssNode');
+    this.kssNode = true;
+    // this.kssNode = hasOption(this.answers.howMuchTheme, 'kssNode');
     // this.breakpoint = hasOption(this.answers.howMuchTheme, 'breakpoint');
     // this.singularity = hasOption(this.answers.howMuchTheme, 'singularity');
     // this.koalityGrid = hasOption(this.answers.howMuchTheme, 'koalityGrid');
@@ -235,15 +236,39 @@ module.exports = class extends Generator {
           themeNameMachine: this.themeNameMachine
         }
       );
+  
+      // Create template folders
+      this.fs.copy(
+        this.templatePath('_src/templates/page'),
+        this.destinationPath('templates/page')
+      );
+      this.fs.copy(
+        this.templatePath('_src/templates/region'),
+        this.destinationPath('templates/region')
+      );
+      // this.fs.copy(
+      //   this.templatePath('_src/templates/sprite'),
+      //   this.destinationPath('templates/sprite')
+      // );
+
       // Create main global Sass file and partials.
       this.fs.copy(
-        this.templatePath('_src/sass/_sass'),
+        this.templatePath('_src/templates/_sass'),
         this.destinationPath('templates/_sass')
       );
       this.fs.copy(
-        this.templatePath('_src/sass/base'),
+        this.templatePath('_src/templates/base'),
         this.destinationPath('templates/base')
       );
+      this.fs.copy(
+        this.templatePath('_src/templates/forms'),
+        this.destinationPath('templates/forms')
+      );
+      this.fs.copy(
+        this.templatePath('_src/templates/typography'),
+        this.destinationPath('templates/typography')
+      );
+
       // this.fs.copyTpl(
       //   this.templatePath('_src/sass/_init.scss'),
       //   this.destinationPath('templates/_sass/_init.scss')
@@ -373,9 +398,6 @@ module.exports = class extends Generator {
 
   end() {
     this.log(chalk.cyan.bgBlack.bold(
-      `☠️  NOTE: Your new generated theme contains a fair bit of boilerplate code.
-   This is by design. If you don't need it PLEASE delete it.
-   You can always rerun the generator some other time in a different directory
-   and copy over what you're missing.`));
+      `Your new Drupal theme is ready to use.`));
   }
 };

@@ -6,7 +6,8 @@ global:
     # base, layout, component, state, theme
     base:
       templates/base/base.css: {}
-      templates/base/typography.css: {}
+      templates/typography/typography.css: {}
+      templates/forms/forms.css: {}
 
 
 # Example external library.

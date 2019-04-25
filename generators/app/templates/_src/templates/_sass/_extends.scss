@@ -11,6 +11,12 @@
   }
 }
 
+%link-hover {
+  color: $link-hover-color;
+  text-decoration: none;
+  transition: color ($transition-time/2);
+}
+
 %button {
   display: inline-block;
   box-sizing: border-box;
