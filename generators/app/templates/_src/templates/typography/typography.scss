@@ -1,6 +1,5 @@
 @import "../_sass/_init.scss";
 
-<% if (kssSections) { -%>
 // Typography
 // Markup:
 //  <h3>Base</h3>
@@ -19,7 +18,6 @@
 // Weight: 999
 //
 // Style guide: Typography
-<% } %>
 
 html,
 body {
