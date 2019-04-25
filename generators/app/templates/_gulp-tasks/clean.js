@@ -13,21 +13,21 @@ module.exports = {
   styleguide: function() {
     // You can use multiple globbing patterns as you would with `gulp.src`
     return del([
-      './dist/style-guide/*'
+      './styleguide/*'
     ], {force: true});
   },
 
   // Clean CSS files.
   css: function() {
     return del([
-      './dist/css/*'
+      './templates/**/*.css'
     ], {force: true});
   },
 
   // Clean JS files.
-  js: function() {
-    return del([
-      './dist/js/*'
-    ], {force: true});
-  }
+  // js: function() {
+  //   return del([
+  //     './templates/**/*.js'
+  //   ], {force: true});
+  // }
 };

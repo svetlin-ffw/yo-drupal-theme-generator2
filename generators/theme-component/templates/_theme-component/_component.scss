@@ -1,3 +1,4 @@
+
 // <%= name %>
 //
 // This is the <%= name %> component. It's an example.
@@ -7,4 +8,4 @@
 // Style guide: Components.<%= dashed %>
 
 // Import site utilities.
-@import '../../_sass/init';
+@import "../_sass/_import.scss";

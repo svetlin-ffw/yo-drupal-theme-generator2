@@ -3,9 +3,9 @@ var path = require('path');
 var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
-describe('generator-drupal-theme:component', function () {
+describe('generator-drupal-theme:theme-component', function () {
   before(function () {
-    return helpers.run(path.join(__dirname, '../generators/component'))
+    return helpers.run(path.join(__dirname, '../generators/theme-component'))
       .withPrompts({someAnswer: true})
       .toPromise();
   });

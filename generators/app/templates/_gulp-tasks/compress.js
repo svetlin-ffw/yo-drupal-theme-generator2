@@ -18,7 +18,7 @@ module.exports = {
   // Compress svg/png/jpg files.
   assets: function() {
     return gulp.src([
-      './src/{global,layout,components}/**/*{.png,.jpg,.svg}'
+      './templates/_img/**/*{.png,.jpg,.svg}'
     ])
       .pipe(imagemin({
         progressive: true,
@@ -30,6 +30,6 @@ module.exports = {
         path.dirname = '';
         return path;
       }))
-      .pipe(gulp.dest('./dist/assets'));
+      .pipe(gulp.dest('./templates/_img/'));
   }
 };

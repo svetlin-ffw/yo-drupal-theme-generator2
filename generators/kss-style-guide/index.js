@@ -31,7 +31,7 @@ module.exports = class extends Generator {
   writing() {
     this.fs.copy(
       this.templatePath('_style-guide'),
-      this.destinationPath('src/style-guide')
+      this.destinationPath('styleguide')
     );
     this.fs.copyTpl(
       this.templatePath('_gulp-tasks/styleguide.js'),
@@ -50,7 +50,7 @@ module.exports = class extends Generator {
     );
     this.fs.copyTpl(
       this.templatePath('_style-guide.md'),
-      this.destinationPath('src/components/style-guide.md'),
+      this.destinationPath('styleguide/styleguide.md'),
       {
         themeName: this.name
       }
@@ -90,25 +90,24 @@ module.exports = class extends Generator {
         gulp.task('styleguide', function() {
           return kss({
             source: [
-              'src/global',
-              'src/components',
-              'src/layout'
+              './components',
+              './templates'
             ],
-            destination: './dist/style-guide',
-            builder: 'src/style-guide/builder',
-            namespace: 'themeMachineName:' + __dirname + '/src/components/',
+            destination: 'styleguide',
+            builder: 'styleguide/builder',
+            namespace: __dirname,
             'extend-drupal8': true,
             // The css and js paths are URLs, like '/misc/jquery.js'.
             // The following paths are relative to the generated style guide.
             css: [
               path.relative(
-                __dirname + '/style-guide/',
-                __dirname + '/css/global.css'
+                __dirname + '/styleguide/',
+                __dirname + '/templates/base/base.css'
               )
             ],
             js: [
             ],
-            homepage: 'style-guide.md',
+            homepage: __dirname + '/styleguide/styleguide.md',
             title: 'Style Guide'
           });
         });

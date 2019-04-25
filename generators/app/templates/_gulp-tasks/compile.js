@@ -26,10 +26,10 @@ function handleError(err) {
 module.exports = {
 
   // Compile Sass.
-  sass: function() {
-    return gulp.src('./src/{global,layout,components}/**/*.scss')
+  sass: function () {
+    return gulp.src('./templates/**/*.scss')
       .pipe(
-        sass({ outputStyle: 'nested' })
+        sass({outputStyle: 'nested'})
           .on('error', handleError)
       )
       .pipe(prefix({
@@ -44,10 +44,11 @@ module.exports = {
   },
 
   // Compile JavaScript.
-  js: function() {
+  js: function () {
     return gulp.src([
-      './src/{global,layout,components}/**/*.es6.js'
-    ], { base: './' })
+      'templates/**/*.es6.js',
+      'components/**/*.es6.js',
+    ], {base: './'})
       .pipe(sourcemaps.init())
       .pipe(
         babel()
@@ -65,6 +66,6 @@ module.exports = {
         return path;
       }))
       .pipe(sourcemaps.write('./'))
-      .pipe(gulp.dest('./dist/js'));
+      .pipe(gulp.dest('./'));
   }
 };

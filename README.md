@@ -1,9 +1,15 @@
-# Koality D8 Theme Generator
+# Yeoman D8 Theme Generator
 
-This is a fork of the [Media Current D8 Theme Generator](https://github.com/mediacurrent/theme_generator_8). At this point most all code and features are thanks to all the hard work they have done. The main differences at this point are the following features:
+This is a fork of the [Koality D8 Theme Generator](https://github.com/CodeKoalas/koality-drupal-theme-generator) which is a fork of [Media Current D8 Theme Generator](https://github.com/mediacurrent/theme_generator_8). 
+
+At this point most all code and features are thanks to all the hard work they have done. The main differences between Koality D8 Theme Generator and Media Current D8 Theme Generator at this point are the following features:
 
 * Auto add component libraries to the theme's library definition list which saves some key strokes
 * Added the [Koality Flexbox Grid](https://github.com/fabean/flexbox-grid) as an install option
+
+Yeoman D8 Theme Generator differences:
+* Added a generator for theme components in the template folder.
+* Changed path of the regular components (`components` instead of `src/components`). Might be changed again later.
 
 > [Yeoman generator](http://yeoman.io/) for Drupal Themes - lets you quickly set up a Drupal 8 theme with sensible defaults and best practices.
 
@@ -17,7 +23,7 @@ This is a fork of the [Media Current D8 Theme Generator](https://github.com/medi
 
 ## Usage
 
-While the koality-theme generator can be run anywhere, it's happiest when it's run from an empty directory you'd like to become your theme.
+While the drupal-theme generator can be run anywhere, it's happiest when it's run from an empty directory you'd like to become your theme.
 
 I.E.
 ```
@@ -45,25 +51,25 @@ If you're using `npm@5.2.0` or newer you already have [npx](https://medium.com/@
 npx allows you to run one off commands using the latest version of a package without installing it globally.
 
 ```bash
-npx -p yo -p generator-koality-theme -c 'yo koality-theme'
+npx -p yo -p generator-drupal-theme -c 'yo drupal-theme'
 ```
 
 Tools like this you only run once every so often. By the time you need to run it again it'll be so far out of date you'll have to update it.
 
-#### 2. Install `yo` and `generator-koality-theme` globally:
+#### 2. Install `yo` and `generator-drupal-theme` globally:
 
 **This is NOT the recommended way of running the theme generator.**
 
 If you're using an older version of npm or just want to install it globally:
 
 ```bash
-npm install -g yo generator-koality-theme
+npm install -g yo generator-drupal-theme
 ```
 
-**Run `yo koality-theme`:**
+**Run `yo drupal-theme`:**
 
 ```
-yo koality-theme
+yo drupal-theme
 ```
 
 To see which generators and subgenerators you have, run `yo --help`.
@@ -71,19 +77,19 @@ To see which generators and subgenerators you have, run `yo --help`.
 **Update the generator as needed.**
 
 ```
-npm update -g generator-koality-theme
+npm update -g generator-drupal-theme
 ```
 
 ## Generators
 
-The `koality-theme` generator makes use of several subgenerators. Each of these can be called individually.
+The `drupal-theme` generator makes use of several subgenerators. Each of these can be called individually.
 
 Available generators:
 
-* [koality-theme](#markdown-header-app) (aka [koality-theme:app](#markdown-header-app), the main app)
-* [koality-theme:component](#markdown-header-component)
-* [koality-theme:js-behavior](#markdown-header-js-behavior)
-* [koality-theme:kss-style-guide](#markdown-header-kss-style-guide)
+* [drupal-theme](#markdown-header-app) (aka [drupal-theme:app](#markdown-header-app), the main app)
+* [drupal-theme:component](#markdown-header-component)
+* [drupal-theme:js-behavior](#markdown-header-js-behavior)
+* [drupal-theme:kss-style-guide](#markdown-header-kss-style-guide)
 
 ### App
 
@@ -94,14 +100,19 @@ Sets up a new theme, generating all the boilerplate you need to get started. The
 Example:
 
 ```bash
-npx -p yo -p generator-koality-theme -c 'yo koality-theme'
+npx -p yo -p generator-drupal-theme -c 'yo drupal-theme'
 ```
 
 Or:
 
 ```bash
-yo koality-theme
+yo drupal-theme
 ```
+
+> <hr />
+>
+> **<span style="color: red">Note:</span>** `drupal-theme:component, drupal-theme:theme-component, drupal-theme:js-behavior` commands do not check the `.libraies.yml` for existing components. They just **append** to the file. Checks will be implemented in a future version.
+> <hr />
 
 ### Component
 Generates component boiler plate based on whatever name you pass it. Please delete whatever you don't need. If you haven't modified it, you don't need it.
@@ -109,13 +120,13 @@ Generates component boiler plate based on whatever name you pass it. Please dele
 Example:
 
 ```bash
-npx -p yo -p generator-koality-theme -c 'yo koality-theme:component "Site Logo"'
+npx -p yo -p generator-drupal-theme -c 'yo drupal-theme:component "Site Logo"'
 ```
 
 Or:
 
 ```bash
-yo koality-theme:component 'Site Logo'
+yo drupal-theme:component 'Site Logo'
 ```
 
 This would generate the following files:
@@ -124,19 +135,40 @@ This would generate the following files:
 - components/site-logo/site-logo.json
 - components/site-logo/site-logo.twig
 
+### Drupal Theme Component
+Generates component boiler plate based on whatever name you pass it.
+
+Example:
+
+```bash
+npx -p yo -p generator-drupal-theme -c 'yo drupal-theme:theme-component "Site Logo"'
+```
+
+Or:
+
+```bash
+yo drupal-theme:theme-component 'Site Logo'
+```
+
+This would generate the following files:
+- templates/site-logo/site-logo.scss
+- templates/site-logo/site-logo.html.twig
+
+yo drupal-theme:theme-component "Block test"
+
 ### JS Behavior
 Generates a Drupal JS behavior based on whatever component file name you pass it.
 
 Example:
 
 ```bash
-npx -p yo -p generator-koality-theme -c 'yo koality-theme:js-behavior "site-logo"'
+npx -p yo -p generator-drupal-theme -c 'yo drupal-theme:js-behavior "site-logo"'
 ```
 
 Or:
 
 ```bash
-yo koality-theme:js-behavior 'site-logo'
+yo drupal-theme:js-behavior 'site-logo'
 ```
 
 By default this will put the new behavior in the components directory. For example if
@@ -151,13 +183,13 @@ Generates a KSS Node style guide. You must pass it a name and a machine name for
 Example:
 
 ```bash
-npx -p yo -p generator-koality-theme -c 'yo koality-theme:kss-style-guide "Super Sweet Theme" "super_sweet_theme"'
+npx -p yo -p generator-drupal-theme -c 'yo drupal-theme:kss-style-guide "Super Sweet Theme" "super_sweet_theme"'
 ```
 
 Or:
 
 ```bash
-yo koality-theme:kss-style-guide 'Super Sweet Theme' 'super_sweet_theme'
+yo drupal-theme:kss-style-guide 'Super Sweet Theme' 'super_sweet_theme'
 ```
 
 Use `--help` to see all usage info.
@@ -165,13 +197,13 @@ Use `--help` to see all usage info.
 Example:
 
 ```bash
-npx -p yo -p generator-koality-theme -c 'yo koality-theme:kss-style-guide --help'
+npx -p yo -p generator-drupal-theme -c 'yo drupal-theme:kss-style-guide --help'
 ```
 
 Or:
 
 ```bash
-yo koality-theme:kss-style-guide --help
+yo drupal-theme:kss-style-guide --help
 ```
 
 ## The New Theme
@@ -246,12 +278,12 @@ Clone down this repo:
 git@github.com:CodeKoalas/koality-drupal-theme-generator.git
 ```
 
-Remove `generator-koality-theme` if you have previously installed it:
+Remove `generator-drupal-theme` if you have previously installed it:
 
 _Tip: use `npm ls -g -depth=0` to see what global node modules are installed._
 
 ```
-npm uninstall generator-koality-theme -g
+npm uninstall generator-drupal-theme -g
 ```
 
 From the generator root directory [link](https://docs.npmjs.com/cli/link) your local generator files to npm:
@@ -260,6 +292,6 @@ From the generator root directory [link](https://docs.npmjs.com/cli/link) your l
 npm link
 ```
 
-Now whenever you run `yo koality-theme` it'll use your locally cloned koality-theme generator. Any updates done to the generator can be tested in real time.
+Now whenever you run `yo drupal-theme` it'll use your locally cloned drupal-theme generator. Any updates done to the generator can be tested in real time.
 
 Break off a feature branch dive right in. After you've got something you'd like to add, push back to the repo and pull request against master.

@@ -20,13 +20,12 @@ module.exports = {
 
     return kss({
       source: [
-        dirname + '/src/global',
-        dirname + '/src/components',
-        dirname + '/src/layout'
+        dirname + '/components',
+        dirname + '/templates'
       ],
-      destination: dirname + '/dist/style-guide',
-      builder: dirname + '/src/style-guide/builder',
-      namespace: '<%= themeName %>:' + dirname + '/src/components/',
+      destination: dirname + '/styleguide',
+      builder: dirname + '/styleguide/builder',
+      namespace: dirname + '/styleguide/',
       'extend-drupal8': true,
       // The css and js paths are URLs, like '/misc/jquery.js'.
       // The following paths are relative to the generated style guide.
@@ -35,13 +34,13 @@ module.exports = {
       // Drupal libraries should be leveraged for adding CSS per component.
       css: [
         path.relative(
-          dirname + '/style-guide/',
+          dirname + '/styleguide/',
           dirname + '/all/all.css'
         )
       ],
       js: [
       ],
-      homepage: 'style-guide.md',
+      homepage: dirname + '/styleguide/styleguide.md',
       title: 'Style Guide'
     });
   }

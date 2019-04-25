@@ -12,7 +12,7 @@ module.exports = class extends Generator {
     this.argument('name', {
       required: false,
       type: String,
-      desc: 'The new component name'
+      desc: 'The new Drupal component name'
     });
   }
 
@@ -35,23 +35,16 @@ module.exports = class extends Generator {
     var destPath = this.destinationPath();
 
     this.fs.copyTpl(
-      this.templatePath('_component/_component.json'),
-      this.destinationPath('components/' + this.componentName.dashed + '/' + this.componentName.dashed + '.json'),
-      {
-        name: this.componentName.raw
-      }
-    );
-    this.fs.copyTpl(
-      this.templatePath('_component/_component.scss'),
-      this.destinationPath('components/' + this.componentName.dashed + '/' + this.componentName.dashed + '.scss'),
+      this.templatePath('_theme-component/_component.scss'),
+      this.destinationPath('templates/' + this.componentName.dashed + '/' + this.componentName.dashed + '.scss'),
       {
         name: this.componentName.raw,
         dashed: this.componentName.dashed
       }
     );
     this.fs.copyTpl(
-      this.templatePath('_component/_component.twig'),
-      this.destinationPath('components/' + this.componentName.dashed + '/' + this.componentName.dashed + '.twig'),
+      this.templatePath('_theme-component/_component.html.twig'),
+      this.destinationPath('templates/' + this.componentName.dashed + '/' + this.componentName.dashed + '.twig'),
       {
         dashed: this.componentName.dashed,
         theme_name: destPath.split('/').slice(-1).pop()
@@ -63,11 +56,9 @@ module.exports = class extends Generator {
 ${this.componentName.dashed}:
   css:
     component:
-      component/${this.componentName.dashed}/${this.componentName.dashed}.css: {}
-  js:
-    component/${this.componentName.dashed}/${this.componentName.dashed}.js: {}
-
+      templates/${this.componentName.dashed}/${this.componentName.dashed}.css: {}
 `;
+
     fs.readdir(
       destPath, function(err, list) {
         if (err) {
@@ -77,7 +68,7 @@ ${this.componentName.dashed}:
         else {
           list.forEach(function(item) {
             if (item.indexOf('libraries.yml') !== -1) {
-              // @TODO Check if component already exists.
+              // @TODO Check if theme component already exists.
               // fs.readFile(`${destPath}/${item}`, function (err, data) {
               //   if (err) throw err;
               //   if (data.includes(this.componentName.dashed)) {
@@ -86,7 +77,7 @@ ${this.componentName.dashed}:
               // });
               fs.appendFile(`${destPath}/${item}`, libraryDefinition, function (err) {
                 if (err) {
-                  console.log('There was an error adding this component to the libraries.yml file');
+                  console.log('There was an error adding this theme component to the libraries.yml file');
                   throw err;
                 }
               });

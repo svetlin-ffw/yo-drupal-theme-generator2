@@ -5,7 +5,8 @@ global:
     # loads stylesheets based on the SMACSS ordering of:
     # base, layout, component, state, theme
     base:
-      dist/css/global.css: {}
+      templates/base/base.css: {}
+      templates/base/typography.css: {}
 
 
 # Example external library.
@@ -21,10 +22,10 @@ global:
 # site-logo:
 #   css:
 #     component:
-#       dist/css/site-logo.css: {}
+#       templates/site-logo/site-logo.css: {}
 #   # If this library had JavaScript you could specify it like this:
 #   js:
-#     js/script.js: {}
+#     templates/site-logo/site-logo.js: {}
 #   # If this library had dependencies on other libraries, you could specify it like this:
 #   dependencies:
 #     - <%= themeNameMachine %>/clearfix

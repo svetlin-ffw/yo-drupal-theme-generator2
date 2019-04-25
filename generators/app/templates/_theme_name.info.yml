@@ -56,11 +56,9 @@ libraries:
 # @<%= themeNameMachine %>
 # See https://www.drupal.org/project/components for more information.
 component-libraries:
-  <%= themeNameMachine %>:
+  <%= themeNameMachine %>_components:
     paths:
-      - src/components
-      - src/layout
-      - src/templates
+      - components
 
 # This section lists the regions defined in the theme (our base theme) default
 # page.html.twig and maintenance-page.html.twig files. The name before
@@ -68,5 +66,13 @@ component-libraries:
 # semi-colon is the region's description used on the admin/structure/block page.
 regions:
   header: Header
-  content: Content
+  primary_menu: Primary menu
+  secondary_menu: Secondary menu
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted content region
+  help: Dynamic help text - mostly for admin pages
+  content: Main content of the current page
+  sidebar_first: First sidebar
+  sidebar_second: Second sidebar
+  below_content: Below main content
   footer: Footer
