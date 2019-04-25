@@ -239,32 +239,32 @@ Provided by default are seven npm scripts that point to Gulp tasks. We run gulp 
 
 2. Compile Sass and JS.
   ```
-  npm run compile
+  npm run gulp:compile
   ```
 
 3. Watch files and run tasks when they change.
   ```
-  npm run watch
+  npm run gulp:watch
   ```
 
 4. Compress png and svg assets.
   ```
-  npm run compress
+  npm run gulp:compress
   ```
 
 5. Build the KSS Style guide.
   ```
-  npm run styleguide
+  npm run gulp:styleguide
   ```
 
 6. Lint Sass and JS files.
   ```
-  npm run lint
+  npm run gulp:lint
   ```
 
 7. Delete compiled Sass, JS and style guide files from the /dist directory.
   ```
-  npm run clean
+  npm run gulp:clean
   ```
 
 ## Contributing
