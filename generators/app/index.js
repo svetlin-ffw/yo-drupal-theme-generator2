@@ -347,7 +347,7 @@ module.exports = class extends Generator {
           }
         );
         // Add a sample JavaScript behavior.
-        this.composeWith(require.resolve('../component-jss'),
+        this.composeWith(require.resolve('../component-js'),
           {
             name: 'sample-list'
           }
