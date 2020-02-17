@@ -17,34 +17,26 @@
     "drupal"
   ],
   "dependencies": {
+  },
+  "devDependencies": {
     "chalk": "^3.0.0",
-    "eslint": "^6.8.0",
-    "eslint-config-xo-space": "^0.24.0",
     "gulp": "^4.0.2",
     "gulp-eslint": "^6.0.0",
     "gulp-mocha": "^7.0.2",
     "lodash": "^4.17.15",
     "mkdirp": "^1.0.3",
     "natives": "",
-    "yeoman-generator": "^4.5.0",
-    "yeoman-test": "^2.1.0",
-    "yosay": ""
-  },
-  "devDependencies": {
-    "eslint": "",
-    "eslint-config-xo-space": "",
-    "gulp": "",
-    "gulp-eslint": "",
+    "eslint": "^6.8.0",
+    "eslint-config-xo-space": "^0.24.0",
     "gulp-exclude-gitignore": "",
     "gulp-istanbul": "",
     "gulp-line-ending-corrector": "",
-    "gulp-mocha": "",
     "gulp-plumber": "",
-    "lodash": "",
-    "mkdirp": "",
     "path": "",
+    "yeoman-generator": "^4.5.0",
+    "yeoman-test": "^2.1.0",
     "yeoman-assert": "",
-    "yeoman-test": ""
+    "yosay": ""
   },
   "eslintConfig": {
     "extends": "xo-space",
