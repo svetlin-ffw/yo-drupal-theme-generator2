@@ -162,8 +162,8 @@ module.exports = class extends Generator {
         this.destinationPath('.eslintrc.yml')
       );
       this.fs.copy(
-        this.templatePath('sass-lint.yml'),
-        this.destinationPath('.sass-lint.yml')
+        this.templatePath('stylelintrc.yml'),
+        this.destinationPath('.stylelintrc.yml')
       );
     };
     projectConfig();
@@ -338,7 +338,7 @@ module.exports = class extends Generator {
       };
 
       // If we're including sample sections, add a sample list component.
-      // Use the component and js-behavior subgenerators to build the component.
+      // Use the component and component-js subgenerators to build the component.
       if (this.kssSections === true) {
         // Add the sample .scss, .json and .twig files.
         this.composeWith(require.resolve('../component'),
@@ -347,7 +347,7 @@ module.exports = class extends Generator {
           }
         );
         // Add a sample JavaScript behavior.
-        this.composeWith(require.resolve('../js-behavior'),
+        this.composeWith(require.resolve('../component-jss'),
           {
             name: 'sample-list'
           }
