@@ -1,12 +1,12 @@
-@import "../_sass/_init.scss";
+@import '../_sass/_init.scss';
 
 // Default values for main HTML elements
 //
 // Style guide: defaults
 
 html {
-  height: 100%;
   box-sizing: border-box;
+  height: 100%;
 }
 
 * {
@@ -21,10 +21,10 @@ html {
 body {
   min-height: 100%;
   margin: 0; /* Remove the margin in all browsers (opinionated). */
-  text-align: center;
-  color: $body-color;
   font-size: $base-font;
   line-height: 1.5;
+  text-align: center;
+  color: $body-color;
   background-color: $body-background-color;
 }
 
@@ -56,7 +56,7 @@ hr {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 pre {
-  font-family: monospace, monospace; /* 1 */
+  font-family: monospace; /* 1 */
   font-size: 1rem; /* 2 */
 }
 
@@ -82,8 +82,8 @@ pre {
 // Style guide: defaults.link
 a {
   outline-color: $link-color;
-  color: $link-color;
   transition: color $transition-time;
+  color: $link-color;
   background-color: transparent; /* Remove the gray background on active links in IE 10. */
   -webkit-text-decoration-skip: objects; /* Remove gaps in links underline in iOS 8+ and Safari 8+. */
 
@@ -111,17 +111,17 @@ small {
 sub,
 sup {
   position: relative;
-  line-height: 0;
   font-size: 75%;
+  line-height: 0;
   vertical-align: baseline;
 }
 
 sub {
-  bottom: -0.25em;
+  bottom: -.25em;
 }
 
 sup {
-  top: -0.5em;
+  top: -.5em;
 }
 
 /* Lists
@@ -162,7 +162,6 @@ audio:not([controls]) {
   display: none;
   height: 0;
 }
-
 
 img {
   max-width: 100%;
@@ -250,9 +249,8 @@ table.sticky-header {
 .action-links,
 .field-collection-view-links,
 #main-wrapper .links.inline {
-  margin: 0;
-
   @extend %clearfix;
+  margin: 0;
 
   li {
     float: left;
@@ -304,7 +302,7 @@ div.messages {
   p {
     margin: 0;
 
-     + p {
+    + p {
       margin-top: $form-space;
     }
   }
@@ -313,10 +311,12 @@ div.messages {
 div.status {
   border-color: $messages-ok;
 }
+
 div.status,
 .ok {
   color: $messages-ok;
 }
+
 div.status,
 table tr.ok {
   background-color: $messages-ok-background;
@@ -325,10 +325,12 @@ table tr.ok {
 div.warning {
   border-color: $messages-warn;
 }
+
 div.warning,
 .warning {
   color: $messages-warn;
 }
+
 div.warning,
 table tr.warning {
   background-color: $messages-warn-background;
@@ -337,14 +339,17 @@ table tr.warning {
 div.error {
   border-color: $messages-error;
 }
+
 div.error,
 .error {
   color: $messages-error;
 }
+
 div.error,
 table tr.error {
   background-color: $messages-error-background;
 }
+
 div.error p.error {
   color: $body-color;
 }
@@ -353,6 +358,7 @@ div.error p.error {
 .form-required {
   color: $messages-error;
 }
+
 .form-item input.error,
 .form-item textarea.error,
 .form-item select.error {
@@ -394,6 +400,7 @@ input.error {
     display: none;
   }
 }
+
 // End visibility classes
 
 // Common styles
@@ -403,7 +410,6 @@ input.error {
 //   <section class="region">Visible on mobile devices</section>
 //
 // Style guide: common.layout
-
 
 main,
 .region {
