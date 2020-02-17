@@ -10,7 +10,7 @@ module.exports = class extends Generator {
 
     // Get more info with `--help`.
     this.argument('name', {
-      required: false,
+      required: true,
       type: String,
       desc: 'The component file name that the behavior should sit within.'
     });
@@ -36,7 +36,7 @@ module.exports = class extends Generator {
     var destPath = this.destinationPath();
 
     this.fs.copyTpl(
-      this.templatePath('_behavior.es6.js'),
+      this.templatePath('_theme-component-js.es6.js'),
       this.destinationPath('templates/' + this.behaviorName.dashed + '/' + this.behaviorName.dashed + '.es6.js'),
       {
         camel: this.behaviorName.camel

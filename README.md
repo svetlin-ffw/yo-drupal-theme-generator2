@@ -85,7 +85,8 @@ Available generators:
 
 * [drupal-theme](#markdown-header-app) (aka [drupal-theme:app](#markdown-header-app), the main app)
 * [drupal-theme:component](#markdown-header-component)
-* [drupal-theme:js-behavior](#markdown-header-js-behavior)
+* [drupal-theme:theme-component](#markdown-header-theme-component)
+* [drupal-theme:theme-behavior](#markdown-header-theme-behavior)
 * [drupal-theme:kss-style-guide](#markdown-header-kss-style-guide)
 
 ### App
@@ -108,7 +109,7 @@ yo drupal-theme
 
 > <hr />
 >
-> **<span style="color: red">Note:</span>** `drupal-theme:component, drupal-theme:theme-component, drupal-theme:js-behavior` commands do not check the `.libraies.yml` for existing components. They just **append** to the file. Checks will be implemented in a future version.
+> **<span style="color: red">Note:</span>** `drupal-theme:component, drupal-theme:theme-component, drupal-theme:theme-behavior` commands do not check the `.libraies.yml` for existing components. They just **append** to the file. Checks will be implemented in a future version.
 > <hr />
 
 ### Component
@@ -159,13 +160,13 @@ Generates a Drupal JS behavior based on whatever component file name you pass it
 Example:
 
 ```bash
-npx -p yo -p generator-drupal-theme -c 'yo drupal-theme:js-behavior "site-logo"'
+npx -p yo -p generator-drupal-theme -c 'yo drupal-theme:theme-behavior "site-logo"'
 ```
 
 Or:
 
 ```bash
-yo drupal-theme:js-behavior 'site-logo'
+yo drupal-theme:theme-behavior 'site-logo'
 ```
 
 By default this will put the new behavior in the components directory. For example if
