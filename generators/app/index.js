@@ -158,6 +158,10 @@ module.exports = class extends Generator {
         this.destinationPath('README.md')
       );
       this.fs.copy(
+        this.templatePath('_TODO.md'),
+        this.destinationPath('TODO.md')
+      );
+      this.fs.copy(
         this.templatePath('eslintrc.yml'),
         this.destinationPath('.eslintrc.yml')
       );
