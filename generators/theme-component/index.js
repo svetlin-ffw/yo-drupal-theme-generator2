@@ -44,13 +44,14 @@ module.exports = class extends Generator {
     );
     this.fs.copyTpl(
       this.templatePath('_theme-component/_component.html.twig'),
-      this.destinationPath('templates/' + this.componentName.dashed + '/' + this.componentName.dashed + '.twig'),
+      this.destinationPath('templates/' + this.componentName.dashed + '/' + this.componentName.dashed + '.html.twig'),
       {
         dashed: this.componentName.dashed,
         theme_name: destPath.split('/').slice(-1).pop()
       }
     );
 
+    // @TODO: Check if library already exists.
     // Auto add this component to the libraries file in Drupal.
     var libraryDefinition = `
 ${this.componentName.dashed}:

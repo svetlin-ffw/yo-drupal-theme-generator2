@@ -12,7 +12,7 @@ module.exports = class extends Generator {
     this.argument('name', {
       required: true,
       type: String,
-      desc: 'The component file name that the javascript should sit within.'
+      desc: 'The component javascript file name.'
     });
   }
 
@@ -29,13 +29,13 @@ module.exports = class extends Generator {
     // Create a dashed version of the layout name.
     this.behaviorName.camel = _.camelCase(this.options.name);
 
-    this.log('Creating component JavaScript ' + this.behaviorName.dashed + '.es6.js');
+    this.log('Creating component JavaScript ' + this.behaviorName.dashed + '.es6');
   }
 
   writing() {
     this.fs.copyTpl(
-      this.templatePath('_component-js.es6.js'),
-      this.destinationPath('components/' + this.behaviorName.dashed + '/' + this.behaviorName.dashed + '.es6.js'),
+      this.templatePath('_component-js.es6'),
+      this.destinationPath('components/' + this.behaviorName.dashed + '/' + this.behaviorName.dashed + '.es6'),
       {
         camel: this.behaviorName.camel,
         dashed: this.behaviorName.dashed
@@ -45,7 +45,7 @@ module.exports = class extends Generator {
 
   install() {
     this.log('=========================================');
-    this.log('Created a new component JavaScript named ' + chalk.red(this.options.name) + '.');
+    this.log('Created a new component JavaScript file named ' + chalk.red(this.options.name) + '.');
     this.log('-----------------------------------------');
   }
 };

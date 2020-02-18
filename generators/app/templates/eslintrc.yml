@@ -102,7 +102,7 @@ rules:
 
   # Validates JSDoc comments are syntactically correct
   valid-jsdoc:
-    - 2
+    - 1
 
   # Treat var as Block Scoped
   block-scoped-var:

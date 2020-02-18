@@ -12,7 +12,7 @@ module.exports = class extends Generator {
     this.argument('name', {
       required: true,
       type: String,
-      desc: 'The component file name that the behavior should sit within.'
+      desc: 'The javascript file name that the behavior should sit within.'
     });
   }
 
