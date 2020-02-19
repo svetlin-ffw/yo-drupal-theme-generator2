@@ -56,8 +56,7 @@ ${this.behaviorName.dashed}:
         if (err) {
           console.log('There was an error adding this component to the libraries.yml file');
           throw err;
-        }
-        else {
+        } else {
           list.forEach(function (item) {
             if (item.indexOf('libraries.yml') !== -1) {
               // @TODO Check if behavior already exists.
@@ -75,7 +74,7 @@ ${this.behaviorName.dashed}:
                 }
               });
             }
-          })
+          });
         }
       }
     );

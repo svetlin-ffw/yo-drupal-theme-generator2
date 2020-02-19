@@ -1,23 +1,22 @@
-/*eslint strict: ["error", "global"]*/
-'use strict';
+/* eslint strict: ["error", "global"] */
 
-//=======================================================
+// =======================================================
 // Include gulp
-//=======================================================
+// =======================================================
 var gulp = require('gulp');
 
-//=======================================================
+// =======================================================
 // Include Our Plugins
-//=======================================================
-var concat      = require('gulp-concat');
-var order       = require('gulp-order');
-var sync        = require('browser-sync');
+// =======================================================
+var concat = require('gulp-concat');
+var order = require('gulp-order');
+var sync = require('browser-sync');
 
 // Export our tasks.
 module.exports = {
 
   // Concat all CSS into a master bundle.
-  css: function() {
+  css: function () {
     return gulp.src([
       './dist/css/*.css'
     ])
@@ -34,7 +33,7 @@ module.exports = {
       .pipe(order([
         'dist/css/global.css',
         'dist/css/*.css'
-      ], { base: './' }))
+      ], {base: './'}))
       .pipe(concat('all.css'))
       .pipe(gulp.dest('./dist/all'))
       .pipe(sync.stream());

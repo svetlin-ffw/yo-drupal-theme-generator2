@@ -1,14 +1,13 @@
-/*eslint strict: ["error", "global"]*/
-'use strict';
+/* eslint strict: ["error", "global"] */
 
-//=======================================================
+// =======================================================
 // Include kss
-//=======================================================
+// =======================================================
 var kss = require('kss');
 
-//=======================================================
+// =======================================================
 // Include Our Plugins
-//=======================================================
+// =======================================================
 var path = require('path');
 
 // Export our tasks.
@@ -16,8 +15,7 @@ module.exports = {
 
   // Generate the style guide using the top level
   // directory name passed in as a parameter.
-  generate: function(dirname) {
-
+  generate: function (dirname) {
     return kss({
       source: [
         dirname + '/components',

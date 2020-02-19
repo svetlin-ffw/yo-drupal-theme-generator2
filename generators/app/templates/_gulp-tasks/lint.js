@@ -1,22 +1,21 @@
-/*eslint strict: ["error", "global"]*/
-'use strict';
+/* eslint strict: ["error", "global"] */
 
-//=======================================================
+// =======================================================
 // Include gulp
-//=======================================================
+// =======================================================
 var gulp = require('gulp');
 
-//=======================================================
+// =======================================================
 // Include Our Plugins
-//=======================================================
+// =======================================================
 var sassLint = require('gulp-sass-lint');
-var eslint   = require('gulp-eslint');
+var eslint = require('gulp-eslint');
 
 // Export our tasks.
 module.exports = {
 
   // Lint Sass based on .sass-lint.yml config.
-  sass: function() {
+  sass: function () {
     return gulp.src([
       './templates/**/*.scss'
     ])
@@ -25,7 +24,7 @@ module.exports = {
   },
 
   // Lint JavaScript based on .eslintrc config.
-  js: function() {
+  js: function () {
     return gulp.src([
       './templates/**/*.js'
     ])

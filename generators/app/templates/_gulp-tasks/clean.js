@@ -1,16 +1,15 @@
-/*eslint strict: ["error", "global"]*/
-'use strict';
+/* eslint strict: ["error", "global"] */
 
-//=======================================================
+// =======================================================
 // Include Our Plugins
-//=======================================================
+// =======================================================
 var del = require('del');
 
 // Export our tasks.
 module.exports = {
 
   // Clean style guide files.
-  styleguide: function() {
+  styleguide: function () {
     // You can use multiple globbing patterns as you would with `gulp.src`
     return del([
       './styleguide/*'
@@ -18,11 +17,11 @@ module.exports = {
   },
 
   // Clean CSS files.
-  css: function() {
+  css: function () {
     return del([
       './templates/**/*.css'
     ], {force: true});
-  },
+  }
 
   // Clean JS files.
   // js: function() {

@@ -16,7 +16,6 @@
  * @module kss/builder/twig
  */
 
-
 // We want to extend kss-node's Twig builder so we can add options that
 // are used in our templates.
 let KssBuilderBaseTwig;

@@ -1,18 +1,17 @@
-/*eslint strict: ["error", "global"]*/
-'use strict';
+/* eslint strict: ["error", "global"] */
 
 // If some JS components aren't es6 we want to simply move them
 // into the dist folder. This allows us to clean the dist/js
 // folder on build.
 
-//=======================================================
+// =======================================================
 // Include gulp
-//=======================================================
+// =======================================================
 var gulp = require('gulp');
 
-//=======================================================
+// =======================================================
 // Include Our Plugins
-//=======================================================
+// =======================================================
 var rename = require('gulp-rename');
 
 // Export our tasks.

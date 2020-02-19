@@ -1,8 +1,8 @@
 'use strict';
 var Generator = require('yeoman-generator');
-var _      = require('lodash');
-var chalk  = require('chalk');
-var fs     = require('fs');
+var _ = require('lodash');
+var chalk = require('chalk');
+var fs = require('fs');
 
 module.exports = class extends Generator {
   constructor(args, opts) {
@@ -61,13 +61,12 @@ ${this.componentName.dashed}:
 `;
 
     fs.readdir(
-      destPath, function(err, list) {
+      destPath, function (err, list) {
         if (err) {
           console.log('There was an error adding this component to the libraries.yml file');
           throw err;
-        }
-        else {
-          list.forEach(function(item) {
+        } else {
+          list.forEach(function (item) {
             if (item.indexOf('libraries.yml') !== -1) {
               // @TODO Check if theme component already exists.
               // fs.readFile(`${destPath}/${item}`, function (err, data) {
@@ -83,10 +82,10 @@ ${this.componentName.dashed}:
                 }
               });
             }
-          })
+          });
         }
       }
-    )
+    );
   }
 
   install() {

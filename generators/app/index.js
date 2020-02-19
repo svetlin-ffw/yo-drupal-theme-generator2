@@ -1,13 +1,12 @@
 'use strict';
-/* eslint no-multi-spaces: "off" */
+/* eslint no-multi-spaces: "0" */
 var Generator = require('yeoman-generator');
-var chalk  = require('chalk');
-var yosay  = require('yosay');
+var chalk = require('chalk');
+var yosay = require('yosay');
 var mkdirp = require('mkdirp');
-var _      = require('lodash');
-var path   = require('path');
-/* eslint no-multi-spaces: "on" */
-
+var _ = require('lodash');
+/* Var path   = require('path'); */
+/* eslint no-multi-spaces: "1" */
 
 module.exports = class extends Generator {
   async prompting() {
@@ -20,31 +19,31 @@ module.exports = class extends Generator {
       {
         type: 'input',
         name: 'themeName',
-        message: `What is your theme's human readable name?`,
+        message: 'What is your theme\'s human readable name?',
         default: this.appname
-        // store: true
+        // Store: true
       },
       {
         type: 'input',
         name: 'themeNameMachine',
-        message: `What is your theme's machine name? EX: unicorn_theme`,
-        default: (answers) => {
-          return _.snakeCase(answers.themeName)
+        message: 'What is your theme\'s machine name? EX: unicorn_theme',
+        default: answers => {
+          return _.snakeCase(answers.themeName);
         }
-        // store: true
+        // Store: true
       },
       {
         type: 'input',
         name: 'themeDesc',
-        message: `What is your theme's description`,
-        default: (answers) => {
-          return `Update ${answers.themeName}.info.yml if you want to change the theme description later.`
+        message: 'What is your theme\'s description',
+        default: answers => {
+          return `Update ${answers.themeName}.info.yml if you want to change the theme description later.`;
         }
       },
       {
         type: 'list',
         name: 'whichBaseTheme',
-        message: `Which base theme you you like to use? If you don't want to use a base theme ping "stable" as that's what's used by Drupal if you don't specify a base.`,
+        message: 'Which base theme you you like to use? If you don\'t want to use a base theme ping "stable" as that\'s what\'s used by Drupal if you don\'t specify a base.',
         choices: [
           {
             value: 'stable',
@@ -82,8 +81,8 @@ module.exports = class extends Generator {
       {
         type: 'confirm',
         name: 'kssSections',
-        message: `Since you're using KSS, would you like some sample Style Guide sections?`
-        // when: (answers) => {
+        message: 'Since you\'re using KSS, would you like some sample Style Guide sections?'
+        // When: (answers) => {
         //   return (answers.howMuchTheme.includes('kssNode'));
         // }
       }
@@ -96,7 +95,7 @@ module.exports = class extends Generator {
     };
 
     this.kssNode = true;
-    // this.kssNode = hasOption(this.answers.howMuchTheme, 'kssNode');
+    // This.kssNode = hasOption(this.answers.howMuchTheme, 'kssNode');
     // this.breakpoint = hasOption(this.answers.howMuchTheme, 'breakpoint');
     // this.singularity = hasOption(this.answers.howMuchTheme, 'singularity');
     // this.koalityGrid = hasOption(this.answers.howMuchTheme, 'koalityGrid');
@@ -107,8 +106,7 @@ module.exports = class extends Generator {
     // Set kssSections if it's needed.
     if (this.kssNode === true) {
       this.kssSections = this.answers.kssSections;
-    }
-    else {
+    } else {
       this.kssSections = false;
     }
 
@@ -170,6 +168,7 @@ module.exports = class extends Generator {
         this.destinationPath('.stylelintrc.yml')
       );
     };
+
     projectConfig();
 
     // Build out the theme folders.
@@ -183,6 +182,7 @@ module.exports = class extends Generator {
       //   this.destinationPath('src/layout/.gitkeep')
       // );
     };
+
     scaffoldFolders();
 
     // Add build tools.
@@ -200,6 +200,7 @@ module.exports = class extends Generator {
         this.destinationPath('gulp-tasks')
       );
     };
+
     buildTools();
 
     // Create the theme files.
@@ -212,7 +213,7 @@ module.exports = class extends Generator {
           themeName: this.answers.themeName,
           themeDesc: this.answers.themeDesc,
           themeNameMachine: this.themeNameMachine,
-          baseTheme: this.baseTheme,
+          baseTheme: this.baseTheme
         }
       );
       // Create theme.libraries.yml with data provided.
@@ -240,7 +241,7 @@ module.exports = class extends Generator {
           themeNameMachine: this.themeNameMachine
         }
       );
-  
+
       // Create template folders
       this.fs.copy(
         this.templatePath('_src/templates/page'),
@@ -250,7 +251,7 @@ module.exports = class extends Generator {
         this.templatePath('_src/templates/region'),
         this.destinationPath('templates/region')
       );
-      // this.fs.copy(
+      // This.fs.copy(
       //   this.templatePath('_src/templates/sprite'),
       //   this.destinationPath('templates/sprite')
       // );
@@ -273,7 +274,7 @@ module.exports = class extends Generator {
         this.destinationPath('templates/typography')
       );
 
-      // this.fs.copyTpl(
+      // This.fs.copyTpl(
       //   this.templatePath('_src/sass/_init.scss'),
       //   this.destinationPath('templates/_sass/_init.scss')
       // );
@@ -339,7 +340,7 @@ module.exports = class extends Generator {
             themeNameMachine: this.themeNameMachine
           }
         );
-      };
+      }
 
       // If we're including sample sections, add a sample list component.
       // Use the component and component-js subgenerators to build the component.
@@ -373,6 +374,7 @@ module.exports = class extends Generator {
         });
       }
     };
+
     projectFiles();
   }
 
@@ -395,7 +397,7 @@ module.exports = class extends Generator {
     // }
 
     // This runs `npm install gulp ... --save-dev` on the command line.
-    this.npmInstall(npmArray, { 'saveDev': true });
+    this.npmInstall(npmArray, {saveDev: true});
 
     this.npmInstall();
   }

@@ -1,22 +1,21 @@
-/*eslint strict: ["error", "global"]*/
-'use strict';
+/* eslint strict: ["error", "global"] */
 
-//=======================================================
+// =======================================================
 // Include gulp
-//=======================================================
+// =======================================================
 var gulp = require('gulp');
 
-//=======================================================
+// =======================================================
 // Include Our Plugins
-//=======================================================
-var rename      = require('gulp-rename');
-var imagemin    = require('gulp-imagemin');
+// =======================================================
+var rename = require('gulp-rename');
+var imagemin = require('gulp-imagemin');
 
 // Export our tasks.
 module.exports = {
 
   // Compress svg/png/jpg files.
-  assets: function() {
+  assets: function () {
     return gulp.src([
       './templates/_img/**/*{.png,.jpg,.svg}'
     ])

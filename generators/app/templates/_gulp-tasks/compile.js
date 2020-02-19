@@ -1,20 +1,19 @@
-/*eslint strict: ["error", "global"]*/
-'use strict';
+/* eslint strict: ["error", "global"] */
 
-//=======================================================
+// =======================================================
 // Include gulp
-//=======================================================
+// =======================================================
 var gulp = require('gulp');
 
-//=======================================================
+// =======================================================
 // Include Our Plugins
-//=======================================================
-var sass        = require('gulp-sass');
-var prefix      = require('gulp-autoprefixer');
-var sourcemaps  = require('gulp-sourcemaps');
-var sync        = require('browser-sync');
-var babel       = require('gulp-babel');
-var rename      = require('gulp-rename');
+// =======================================================
+var sass = require('gulp-sass');
+var prefix = require('gulp-autoprefixer');
+var sourcemaps = require('gulp-sourcemaps');
+var sync = require('browser-sync');
+var babel = require('gulp-babel');
+var rename = require('gulp-rename');
 
 // Small error handler helper function.
 function handleError(err) {
@@ -47,7 +46,7 @@ module.exports = {
   js: function () {
     return gulp.src([
       'templates/**/*.es6.js',
-      'components/**/*.es6.js',
+      'components/**/*.es6.js'
     ], {base: './'})
       .pipe(sourcemaps.init())
       .pipe(
