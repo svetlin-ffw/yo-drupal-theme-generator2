@@ -1,11 +1,13 @@
 
-// <%= name %>
+// <%= name %> component
 //
-// This is the <%= name %> component. It's an example.
-//
-// Markup: <%= dashed %>.twig
-//
+// Markup: <%= dashed %>.html.twig
 // Style guide: Components.<%= dashed %>
 
 // Import site utilities.
 @import "../_sass/_init.scss";
+
+// Check if @import and JS behavior are working
+.<%= dashed %>.testing {
+  color: $blue;
+}

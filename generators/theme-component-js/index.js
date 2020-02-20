@@ -36,10 +36,11 @@ module.exports = class extends Generator {
     var destPath = this.destinationPath();
 
     this.fs.copyTpl(
-      this.templatePath('_theme-component-js.es6.js'),
+      this.templatePath('_theme-component-js.es6'),
       this.destinationPath('templates/' + this.behaviorName.dashed + '/' + this.behaviorName.dashed + '.es6.js'),
       {
-        camel: this.behaviorName.camel
+        camel: this.behaviorName.camel,
+        dashed: this.behaviorName.dashed
       }
     );
 

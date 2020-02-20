@@ -144,28 +144,48 @@ module.exports = class extends Generator {
         }
       );
       this.fs.copy(
-        this.templatePath('gitignore'),
+        this.templatePath('_babelrc.json'),
+        this.destinationPath('.babelrc.json')
+      );
+      this.fs.copy(
+        this.templatePath('_editorconfig'),
+        this.destinationPath('.editorconfig')
+      );
+      this.fs.copy(
+        this.templatePath('_eslintignore'),
+        this.destinationPath('.eslintignore')
+      );
+      this.fs.copy(
+        this.templatePath('_eslintrc.json'),
+        this.destinationPath('.eslintrc.json')
+      );
+      this.fs.copy(
+        this.templatePath('_gitignore'),
         this.destinationPath('.gitignore')
       );
       this.fs.copy(
-        this.templatePath('editorconfig'),
-        this.destinationPath('.editorconfig')
+        this.templatePath('_gulpfile.js'),
+        this.destinationPath('gulpfile.js')
+      );
+      this.fs.copy(
+        this.templatePath('_prettierrc.json'),
+        this.destinationPath('.prettierrc.json')
       );
       this.fs.copy(
         this.templatePath('_README.md'),
         this.destinationPath('README.md')
       );
       this.fs.copy(
-        this.templatePath('_TODO.md'),
+        this.templatePath('_screenshot.png'),
+        this.destinationPath('screenshot.png')
+      );
+      this.fs.copy(
+        this.templatePath('_stylelintrc.json'),
+        this.destinationPath('.stylelintrc.json')
+      );
+      this.fs.copy(
+        this.templatePath('TODO.md'),
         this.destinationPath('TODO.md')
-      );
-      this.fs.copy(
-        this.templatePath('eslintrc.yml'),
-        this.destinationPath('.eslintrc.yml')
-      );
-      this.fs.copy(
-        this.templatePath('stylelintrc.yml'),
-        this.destinationPath('.stylelintrc.yml')
       );
     };
 
@@ -358,11 +378,6 @@ module.exports = class extends Generator {
           }
         );
       }
-
-      this.fs.copy(
-        this.templatePath('_screenshot.png'),
-        this.destinationPath('screenshot.png')
-      );
 
       // If the KSS Node option is selected, use the subgenerator 'kss-style-guide'.
       if (this.kssNode === true) {

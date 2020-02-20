@@ -1,15 +1,12 @@
-// <%= name %>
-//
-// This is the <%= name %> component. It's an example.
+// <%= name %> component
 //
 // Markup: <%= dashed %>.twig
-//
 // Style guide: Components.<%= dashed %>
 
 // Import site utilities.
 @import "../../templates/_sass/_init.scss";
 
 // Check if @import is working
-p {
+.<%= dashed %> {
   color: $blue;
 }
