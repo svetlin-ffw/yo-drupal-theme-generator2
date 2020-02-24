@@ -5,8 +5,7 @@
   "homepage": "https://gitlab.workingpropeople.com/svetlin/yo-drupal-theme-generator",
   "author": {
     "name": "svetlin-ffw",
-    "email": "svetlinm@gmail.com",
-    "url": ""
+    "email": "svetlinm@gmail.com"
   },
   "files": [
     "generators"

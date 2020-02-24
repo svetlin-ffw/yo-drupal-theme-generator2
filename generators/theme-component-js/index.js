@@ -29,7 +29,7 @@ module.exports = class extends Generator {
     // Create a dashed version of the layout name.
     this.behaviorName.camel = _.camelCase(this.options.name);
 
-    this.log('Creating Drupal JavaScript behavior ' + this.behaviorName.dashed + '.es6.js');
+    this.log('Creating Drupal JavaScript behavior ' + this.behaviorName.dashed + '.es6');
   }
 
   writing() {
@@ -37,7 +37,7 @@ module.exports = class extends Generator {
 
     this.fs.copyTpl(
       this.templatePath('_theme-component-js.es6'),
-      this.destinationPath('templates/' + this.behaviorName.dashed + '/' + this.behaviorName.dashed + '.es6.js'),
+      this.destinationPath('templates/' + this.behaviorName.dashed + '/' + this.behaviorName.dashed + '.es6'),
       {
         camel: this.behaviorName.camel,
         dashed: this.behaviorName.dashed

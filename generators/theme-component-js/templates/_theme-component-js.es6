@@ -2,7 +2,6 @@
  * @file
  * Use this to describe what your behavior does.
  */
-
 ((document, Drupal, $) => {
   Drupal.behaviors.<%= camel %> = {
     attach(context) {

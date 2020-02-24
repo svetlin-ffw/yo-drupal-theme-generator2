@@ -156,8 +156,8 @@ module.exports = class extends Generator {
         this.destinationPath('.eslintignore')
       );
       this.fs.copy(
-        this.templatePath('_eslintrc.json'),
-        this.destinationPath('.eslintrc.json')
+        this.templatePath('_eslintrc.yml'),
+        this.destinationPath('.eslintrc.yml')
       );
       this.fs.copy(
         this.templatePath('_gitignore'),
