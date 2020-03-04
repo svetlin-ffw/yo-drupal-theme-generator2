@@ -17,7 +17,6 @@ module.exports = {
   // Generate the style guide using the top level
   // directory name passed in as a parameter.
   generate: function (dirname) {
-
     return kss({
       source: [
         dirname + '/components',
