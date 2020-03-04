@@ -167,6 +167,11 @@ module.exports = class extends Generator {
         this.templatePath('_gulpfile.js'),
         this.destinationPath('gulpfile.js')
       );
+      );
+      this.fs.copy(
+        this.templatePath('_kss.json'),
+        this.destinationPath('.kss.json')
+      );
       this.fs.copy(
         this.templatePath('_prettierrc.json'),
         this.destinationPath('.prettierrc.json')
