@@ -2,7 +2,7 @@
 var Generator = require('yeoman-generator');
 var _ = require('lodash');
 var chalk = require('chalk');
-var fs = require('fs');
+// Var fs = require('fs');
 
 module.exports = class extends Generator {
   constructor(args, opts) {

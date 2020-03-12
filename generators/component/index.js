@@ -54,7 +54,7 @@ module.exports = class extends Generator {
       this.destinationPath('components/' + this.componentName.dashed + '/' + this.componentName.dashed + '.twig'),
       {
         dashed: this.componentName.dashed,
-        theme_name: destPath.split('/').slice(-1).pop()
+        themeName: destPath.split('/').slice(-1).pop()
       }
     );
 

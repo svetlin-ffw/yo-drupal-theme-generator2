@@ -1,12 +1,11 @@
 'use strict';
-/* eslint no-multi-spaces: "0" */
+/* eslint no-multi-spaces: 0 */
 var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var mkdirp = require('mkdirp');
 var _ = require('lodash');
-/* Var path   = require('path'); */
-/* eslint no-multi-spaces: "1" */
+/* eslint no-multi-spaces: 1 */
 
 module.exports = class extends Generator {
   async prompting() {
@@ -55,50 +54,14 @@ module.exports = class extends Generator {
           }
         ]
       },
-      // {
-      //   type: 'checkbox',
-      //   name: 'howMuchTheme',
-      //   message: 'What would you like included in this build?',
-      //   choices: [
-      //     {
-      //       value: 'kssNode',
-      //       name: 'KSS Node style guide'
-      //     },
-      //     // {
-      //     //   value: 'breakpoint',
-      //     //   name: 'Breakpoint plugin'
-      //     // },
-      //     // {
-      //     //   value: 'singularity',
-      //     //   name: 'Singularity Grid System and Breakpoint'
-      //     // },
-      //     // {
-      //     //   value: 'koalityGrid',
-      //     //   name: 'Koality Flexbox Grid'
-      //     // }
-      //   ]
-      // },
       {
         type: 'confirm',
         name: 'kssSections',
         message: 'Would you like some sample Style Guide sections?'
-        // when: (answers) => {
-        //   return (answers.howMuchTheme.includes('kssNode'));
-        // }
       }
     ]);
 
-    // Check available options and store them in as easy to use variables.
-    // Returns true or false depending on if the choice is selected.
-    const hasOption = (choices, opt) => {
-      return choices.indexOf(opt) !== -1;
-    };
-
     this.kssNode = 'KSS Node style guide';
-    // this.kssNode = hasOption(this.answers.howMuchTheme, 'kssNode');
-    // this.breakpoint = hasOption(this.answers.howMuchTheme, 'breakpoint');
-    // this.singularity = hasOption(this.answers.howMuchTheme, 'singularity');
-    // this.koalityGrid = hasOption(this.answers.howMuchTheme, 'koalityGrid');
 
     // Add the base theme to the object.
     this.baseTheme = this.answers.whichBaseTheme;
@@ -109,14 +72,6 @@ module.exports = class extends Generator {
     } else {
       this.kssSections = false;
     }
-
-    // If BOTH Singularity and Breakpoint options are checked,
-    // set breakpoint to false as Singularity includes breakpoint
-    // same with koalityGrid
-    // as a dependency.
-    // if (this.singularity === true && this.breakpoint === true) {
-    //   this.breakpoint = false;
-    // }
 
     // Create a underscored version of the theme name.
     this.cleanThemeName = _.snakeCase(this.answers.themeName);
@@ -195,33 +150,9 @@ module.exports = class extends Generator {
     const scaffoldFolders = () => {
       mkdirp('components');
       mkdirp('templates');
-      // Some folders remain empty so add in a gitkeep
-      // so they're checked into git.
-      // this.fs.copy(
-      //   this.templatePath('gitkeep'),
-      //   this.destinationPath('src/layout/.gitkeep')
-      // );
     };
 
     scaffoldFolders();
-
-    // Add build tools.
-    // const buildTools = () => {
-    //   this.fs.copyTpl(
-    //     this.templatePath('_gulpfile.js'),
-    //     this.destinationPath('gulpfile.js'),
-    //     {
-    //       kssNode: this.kssNode,
-    //       themeNameMachine: this.themeNameMachine
-    //     }
-    //   );
-    //   this.fs.copy(
-    //     this.templatePath('_gulp-tasks'),
-    //     this.destinationPath('gulp-tasks')
-    //   );
-    // };
-
-    // buildTools();
 
     // Create the theme files.
     const projectFiles = () => {
@@ -271,10 +202,6 @@ module.exports = class extends Generator {
         this.templatePath('_src/templates/region'),
         this.destinationPath('templates/region')
       );
-      // This.fs.copy(
-      //   this.templatePath('_src/templates/sprite'),
-      //   this.destinationPath('templates/sprite')
-      // );
 
       // Create main global Sass file and partials.
       this.fs.copy(
@@ -293,51 +220,6 @@ module.exports = class extends Generator {
         this.templatePath('_src/templates/typography'),
         this.destinationPath('templates/typography')
       );
-
-      // This.fs.copyTpl(
-      //   this.templatePath('_src/sass/_init.scss'),
-      //   this.destinationPath('templates/_sass/_init.scss')
-      // );
-      // this.fs.copy(
-      //   this.templatePath('_src/_global/_base'),
-      //   this.destinationPath('src/global/base')
-      // );
-      // this.fs.copy(
-      //   this.templatePath('_src/_global/_utils'),
-      //   this.destinationPath('src/global/utils')
-      // );
-      // // The following need variables passed in so they can
-      // // conditionally buid the files.
-      // this.fs.copyTpl(
-      //   this.templatePath('_src/_global/_init.scss'),
-      //   this.destinationPath('src/global/utils/_init.scss'),
-      //   {
-      //     breakpoint: this.breakpoint,
-      //     // singularity: this.singularity,
-      //     // koalitygrid: this.koalityGrid
-      //   }
-      // );
-      // this.fs.copyTpl(
-      //   this.templatePath('_src/_global/_colors.scss'),
-      //   this.destinationPath('src/global/utils/_colors.scss'),
-      //   {
-      //     kssSections: this.kssSections
-      //   }
-      // );
-      // this.fs.copyTpl(
-      //   this.templatePath('_src/_global/_typography.scss'),
-      //   this.destinationPath('src/global/utils/_typography.scss'),
-      //   {
-      //     kssSections: this.kssSections
-      //   }
-      // );
-      // this.fs.copyTpl(
-      //   this.templatePath('_src/_global/_variables.scss'),
-      //   this.destinationPath('src/global/utils/_variables.scss'),
-      //   // {
-      //   //   koalitygrid: this.koalityGrid
-      //   // }
-      // );
 
       // If we're including sample sections, add the icons section,
       // which is a component.
@@ -378,42 +260,12 @@ module.exports = class extends Generator {
           }
         );
       }
-
-      // If the KSS Node option is selected, use the subgenerator 'kss-style-guide'.
-      // if (this.kssNode === true) {
-      //   this.composeWith('drupal-theme:kss-style-guide', {
-      //     args: [this.answers.themeName, this.answers.themeNameMachine],
-      //     options: {
-      //       gulpExample: false
-      //     }
-      //   });
-      // }
     };
 
     projectFiles();
   }
 
   install() {
-    // Create an empty array for our NodeJS Modules
-    var npmArray = [];
-
-    // Conditionally install breakpoint or singularity using npm.
-    // if (this.breakpoint === true || this.singularity === true) {
-    //   npmArray.push('breakpoint-sass');
-    // }
-
-    // Conditionally install Koality Grid using npm.
-    // if (this.koalityGrid === true) {
-    //   npmArray.push('koality-flexbox-grid');
-    // }
-
-    // if (this.singularity === true) {
-    //   npmArray.push('singularitygs');
-    // }
-
-    // This runs `npm install gulp ... --save-dev` on the command line.
-    this.npmInstall(npmArray, {saveDev: true});
-
     this.npmInstall();
   }
 
