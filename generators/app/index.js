@@ -81,8 +81,8 @@ module.exports = class extends Generator {
       {
         type: 'confirm',
         name: 'kssSections',
-        message: 'Since you\'re using KSS, would you like some sample Style Guide sections?'
-        // When: (answers) => {
+        message: 'Would you like some sample Style Guide sections?'
+        // when: (answers) => {
         //   return (answers.howMuchTheme.includes('kssNode'));
         // }
       }
@@ -94,8 +94,8 @@ module.exports = class extends Generator {
       return choices.indexOf(opt) !== -1;
     };
 
-    this.kssNode = true;
-    // This.kssNode = hasOption(this.answers.howMuchTheme, 'kssNode');
+    this.kssNode = 'KSS Node style guide';
+    // this.kssNode = hasOption(this.answers.howMuchTheme, 'kssNode');
     // this.breakpoint = hasOption(this.answers.howMuchTheme, 'breakpoint');
     // this.singularity = hasOption(this.answers.howMuchTheme, 'singularity');
     // this.koalityGrid = hasOption(this.answers.howMuchTheme, 'koalityGrid');
@@ -144,8 +144,8 @@ module.exports = class extends Generator {
         }
       );
       this.fs.copy(
-        this.templatePath('_babelrc.json'),
-        this.destinationPath('.babelrc.json')
+        this.templatePath('_babel.config.json'),
+        this.destinationPath('babel.config.json')
       );
       this.fs.copy(
         this.templatePath('_editorconfig'),
@@ -162,11 +162,6 @@ module.exports = class extends Generator {
       this.fs.copy(
         this.templatePath('_gitignore'),
         this.destinationPath('.gitignore')
-      );
-      this.fs.copy(
-        this.templatePath('_gulpfile.js'),
-        this.destinationPath('gulpfile.js')
-      );
       );
       this.fs.copy(
         this.templatePath('_kss.json'),
@@ -211,22 +206,22 @@ module.exports = class extends Generator {
     scaffoldFolders();
 
     // Add build tools.
-    const buildTools = () => {
-      this.fs.copyTpl(
-        this.templatePath('_gulpfile.js'),
-        this.destinationPath('gulpfile.js'),
-        {
-          kssNode: this.kssNode,
-          themeNameMachine: this.themeNameMachine
-        }
-      );
-      this.fs.copy(
-        this.templatePath('_gulp-tasks'),
-        this.destinationPath('gulp-tasks')
-      );
-    };
+    // const buildTools = () => {
+    //   this.fs.copyTpl(
+    //     this.templatePath('_gulpfile.js'),
+    //     this.destinationPath('gulpfile.js'),
+    //     {
+    //       kssNode: this.kssNode,
+    //       themeNameMachine: this.themeNameMachine
+    //     }
+    //   );
+    //   this.fs.copy(
+    //     this.templatePath('_gulp-tasks'),
+    //     this.destinationPath('gulp-tasks')
+    //   );
+    // };
 
-    buildTools();
+    // buildTools();
 
     // Create the theme files.
     const projectFiles = () => {
@@ -385,14 +380,14 @@ module.exports = class extends Generator {
       }
 
       // If the KSS Node option is selected, use the subgenerator 'kss-style-guide'.
-      if (this.kssNode === true) {
-        this.composeWith('drupal-theme:kss-style-guide', {
-          args: [this.answers.themeName, this.answers.themeNameMachine],
-          options: {
-            gulpExample: false
-          }
-        });
-      }
+      // if (this.kssNode === true) {
+      //   this.composeWith('drupal-theme:kss-style-guide', {
+      //     args: [this.answers.themeName, this.answers.themeNameMachine],
+      //     options: {
+      //       gulpExample: false
+      //     }
+      //   });
+      // }
     };
 
     projectFiles();
