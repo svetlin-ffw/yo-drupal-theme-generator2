@@ -23,9 +23,9 @@
             component:
               templates/component-name/component-name.css: {}
         ```
-10.  `yo drupal-theme:js-behavior 'BEHAVIOR NAME'`    
+10.  `yo drupal-theme:theme-component-js 'BEHAVIOR NAME'`    
      1.   Will reuse an exisitng folder in the `templates` folder with the name `behavior-name` or create a new one with the following file:
-          - component-name.es6.js
+          - component-name.es6
      2.  Will update `THEME_NAME.libraries.yml` with the path to the theme component JS file:
           ```
           component-name:
