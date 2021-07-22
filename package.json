@@ -27,7 +27,7 @@
     "gulp-line-ending-corrector": "^1.0.3",
     "gulp-mocha": "^7.0.2",
     "gulp-plumber": "^1.2.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "mkdirp": "^1.0.3",
     "path": "^0.12.7",
     "yeoman-assert": "^3.1.1",
